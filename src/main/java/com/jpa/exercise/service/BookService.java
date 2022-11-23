@@ -20,7 +20,7 @@ public class BookService {
     public BookService(BookRepository bookRepository) {
         this.bookRepository = bookRepository;
     }
-    public List<BookResponse> findBooks(Pageable pageable) {
+    public List<BookResponse> books(Pageable pageable) {
         Page<Book> books = bookRepository.findAll(pageable);
         List<BookResponse> bookResponses = books.stream()
                 .map(book -> BookResponse.of(book))
